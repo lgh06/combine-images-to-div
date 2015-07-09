@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,user-scalable=yes" />
+		<title>视口test</title>
+		
+		<link rel="stylesheet/less" type="text/css" href="./css/test.less" />
+		<script src="./js/less.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" src="js/test.js"></script>
+		<script type="text/javascript">
+			jQuery(function($){
+				
+				imageFitDiv("body",500.0,742.0);
+				
+			    //使图片适应div，宽高等比例，不超过div
+			    function imageFitDiv(div,imgOriginWidth,imgOriginHeight){
+			    	var w = $(div).width();
+			    	var h = $(div).height();
+			    	if(w/h >= imgOriginWidth/imgOriginHeight){
+			    		$(div).find(".container").height(h+"px");
+			    		$(div).find(".container").width(h/imgOriginHeight*imgOriginWidth+"px");
+			    	}else{
+			    		$(div).find(".container").width(w+"px");
+			    		$(div).find(".container").height(w/imgOriginWidth*imgOriginHeight+"px");
+			    		
+			    	}      	
+			    }
+			});
+		</script>
+	<body>
+		<div class="container">
+			
+			<div class="f2b">
+				<img src="img/f2.png" alt="" class="f2" />
+			</div>
+			<div class="f3b">
+				<img src="img/f3.png" alt="" class="f3" />
+			</div>
+			<div class="f1b">
+				<img src="img/f1.png" alt="" class="f1" />
+			</div>
+		</div>
+	</body>
+</html>
